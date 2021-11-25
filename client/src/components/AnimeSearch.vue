@@ -6,7 +6,7 @@
         <input type="text" class="form-control" placeholder="Enter keyword" aria-label="Username">
       </div>
       <div class="card">
-        <div class="card-body bg-light">
+        <div class="card-body">
           <h5 class="card-title">Advanced Search</h5>
           <div class="row">
             <div class="col-sm-4 p-4">
