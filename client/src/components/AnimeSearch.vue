@@ -13,16 +13,21 @@
               <div class="row gap-3">
                 <select class="form-select" aria-label="Default select example">
                   <option selected>Status</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                   <option value=""> Status</option>
+                   <option value=" Finished Airing "> Finished Airing </option>
+                   <option value=" Currently Airing " > Currently Airing</option>
+
                 </select>
 
                 <select class="form-select" aria-label="Default select example">
                   <option selected class="bg-transparent">Duration</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option value=" duration <= 5 "> less than 5 min </option>
+                  <option value=" duration > 5 and duration < 10 "> 5 min ~ 10 min </option>
+                  <option value=" duration >= 10 and duration < 30 "> 10 min ~ 30 min </option>
+                  <option value=" duration >= 30 and duration < 60  "> >30 min ~ 1 hour </option>
+                  <option value=" duration >= 60 and duration < 120 "> >1 hour ~ 2 hour </option>
+                  <option value=" duration >= 120 and duration < 180 "> >2 hour ~ 3 hour </option>
+                  <option value=" duration >= 180 "> >3 hour+ </option>
                 </select>
               </div>
             </div>
@@ -30,15 +35,25 @@
               <div class="row gap-3">
                 <select class="form-select" aria-label="Default select example">
                   <option selected>Number of episodes</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option value=" episodes < 5 ">less than 5</option>
+                  <option value=" episodes < 10 ">less than 10</option>
+                  <option value=" episodes >= 10 and episodes < 15 ">10 ~ 15</option>
+                  <option value=" episodes >= 15 and episodes < 25 ">15 ~ 25</option>
+                  <option value=" episodes >= 25 and episodes < 35 ">25 ~ 35</option>
+                  <option value=" episodes >= 35 and episodes < 100 ">35 ~ 100</option>
+                  <option value=" episodes >= 100 and episodes < 200 ">100 ~ 200</option>
+                  <option value=" episodes >= 200 and episodes < 300 ">200 ~ 300</option>
+                  <option value=" episodes >= 300 and episodes < 400 ">300 ~ 400</option>
+                  <option value=" episodes >= 400 and episodes < 500 ">400 ~ 500</option>
+                  <option value=" episodes >= 500 ">500+</option>
+                  
+                  
                 </select>
                 <select class="form-select" aria-label="Default select example">
                   <option selected>Aired on</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option value="3">fk</option>
+                  <option value="3">this</option>
+                  <option value="3">too long</option>
                 </select>
               </div>
             </div>
@@ -46,15 +61,41 @@
               <div class="row gap-3">
                 <select class="form-select" aria-label="Default select example">
                   <option selected>Genre</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option value="1">Action</option>
+                  <option value="2">Comedy</option>
+                  <option value="3">Adventure</option>
+                  <option value="3">Drama</option>
+                  <option value="3">Slice of Life</option>
+                  <option value="3">Sci-Fi</option>
+                  <option value="3">Fantasy</option>
+                  <option value="3">Music</option>
+                  <option value="3">Kids</option>
+                  <option value="3">School</option>
+                  <option value="3">Mystery</option>
+                  <option value="3">Romance</option>
+                  <option value="3">Harem</option>
+                  <option value="3">Ecchi</option>
+                  <option value="3">Historical</option>
+                  <option value="3">Sports</option>
+                  <option value="3">Horror</option>
+                  <option value="3">Military</option>
                 </select>
                 <select class="form-select" aria-label="Default select example">
                   <option selected>Source</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option value="Manga">Manga</option>
+                  <option value="Original">Original</option>
+                  <option value="Visual novel">Visual Novel</option>
+                  <option value="Light novel">Light novel</option>
+                  <option value="Game">Game</option>
+                  <option value="Novel">Novel</option>
+                  <option value="4-koma Manga">4-koma Manga</option>
+                  <option value="Book">Book</option>
+                  <option value="Music">Music</option>
+                  <option value="Picture Book">Picture Book</option>
+                  <option value="Web Manga">Web Manga</option>
+                  <option value="Card Game">Card Game</option>
+                  <option value="Radio">Radio</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
             </div>
@@ -75,6 +116,8 @@
         </div>
       </div>
     </form>
+    <p>{{this.evaluate()}}</p>
+          <p>{{this.display}}</p>
   </div>
 </template>
 
@@ -96,7 +139,7 @@ export default {
   methods: {
     async evaluate() {
       await axios
-          .get(URL + "hello")
+          .get(URL + "search")
           .then((response) => {
             this.display = response.data
             console.log(response)
