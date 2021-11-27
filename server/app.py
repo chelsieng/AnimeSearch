@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_cors import CORS, cross_origin
 from elasticsearch import Elasticsearch
 import json
@@ -18,7 +18,6 @@ def hello_world():  # put application's code here
 @app.route('/search/<words>', methods=['GET'])
 @cross_origin()
 def searchAnime(words):
-    words = "naruto"
     if words == "":
         return
     else:
