@@ -14,6 +14,7 @@
 
 * python
 * node.js
+* elasticsearch
 
 ### Set up python's virtual environment
 
