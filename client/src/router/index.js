@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import AnimeSearch from "@/components/AnimeSearch";
 import Results from "@/components/Results";
+import Error from "@/components/Error";
 
 Vue.use(VueRouter)
 
@@ -15,7 +16,11 @@ const routes = [
         path: '/results',
         name: 'Results',
         component: Results,
-        // props: route => ({query: route.query.q})
+    },
+    {
+        path: '/error',
+        name: 'Error',
+        component: Error,
     }
 ]
 
