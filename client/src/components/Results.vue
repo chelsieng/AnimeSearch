@@ -10,7 +10,7 @@
           <h5>{{ r['English Title'] }}</h5>
           <div class="col-lg-3">
             <img :src="r['Image_url']"
-                 class="rounded">
+                 class="rounded" alt="">
           </div>
           <div class="col-lg-9">
             <p class="card-text">Description: {{ r['description'] }}</p>

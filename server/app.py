@@ -15,6 +15,67 @@ def hello_world():  # put application's code here
     return "Hello World!"
 
 
+@app.route('/advanced_search/<words>', methods=['GET'])
+@cross_origin()
+def advancedSearch(words):
+    if words == "":
+        return
+    else:
+        print(request.args)
+        data = json.loads(json.dumps(request.args))
+        terms = []
+        for i in data:
+            if i == "genre":
+                if request.args.get(i) == "genre":
+                    continue
+                # else:
+                #     if request.args.get(i) == "Slice of Life":
+                #         terms.append({"term": {i: request.args.get(i)}})
+                #     else:
+                #         terms.append({"terms": {i: [request.args.get(i).capitalize()]}})
+            elif i == "Source":
+                if request.args.get(i) == "Source":
+                    continue
+                # else:
+                #     terms.append({"term": {i: request.args.get(i).capitalize()}})
+            elif i == "Status":
+                if request.args.get(i) == "Status":
+                    continue
+                # else:
+                #     terms.append({"term": {i: request.args.get(i).title()}})
+            else:
+                terms.append({"term": {i: request.args.get(i)}})
+        print(terms)
+        query = {
+            "bool": {
+                "must": {
+                    "multi_match": {
+                        "query": words,
+                        "fields": ["description", "English Title", "Japanese Title"]
+                    }
+                },
+                "filter": {
+                    "bool": {
+                        "must":
+                            json.loads(json.dumps(terms)),
+                    }
+                },
+            }
+        }
+        res = es.search(index="animes", query=query)
+        print("Got %d Hits:" % res['hits']['total']['value'])
+        hits = []
+        for hit in res['hits']['hits']:
+            hits.append(hit["_source"])
+            # print(hit["_source"])
+        # print(hits)
+        response = app.response_class(
+            response=json.dumps(hits),
+            mimetype='application/json'
+        )
+    return response
+
+
 @app.route('/search/<words>', methods=['GET'])
 @cross_origin()
 def searchAnime(words):
