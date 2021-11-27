@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <AnimeSearch msg="Welcome to Your Vue.js App"/>
+    <!--    <div id="nav">-->
+    <!--      <router-link to="/">Home</router-link> |-->
+    <!--      <router-link to="/about">About</router-link>-->
+    <!--    </div>-->
+<!--    <AnimeSearch/>-->
+    <router-view/>
   </div>
 </template>
 
 <script>
-import AnimeSearch from './components/AnimeSearch.vue'
+// import AnimeSearch from "@/components/AnimeSearch";
 
 export default {
-  name: 'App',
-  components: {
-    AnimeSearch
-  }
+  components: {}
 }
 </script>
 
@@ -28,12 +30,11 @@ export default {
 
 html {
   height: 100%;
-
 }
 
 body {
   /* Center and scale the image nicely */
-  background: url("./assets/bg.jpg") no-repeat center;
+  background: url("./assets/bg.jpg") center;
   background-size: cover;
 }
 </style>
