@@ -1,5 +1,5 @@
 # Anime Search Engine
-![image](https://user-images.githubusercontent.com/60008262/143500374-8b1e0e3a-1316-4d18-8189-5f7f364585e6.png)
+![image](https://user-images.githubusercontent.com/60008262/143714952-a18bd1d7-9126-4e45-937b-c80579b7cbdb.png)
 
 
 ## Project set up
