@@ -12,9 +12,20 @@
 
 **Prerequites:**
 
-* python
-* node.js
-* elasticsearch
+* [python](https://www.python.org/downloads/)
+* [node.js](https://nodejs.org/en/download/)
+* [elasticsearch](https://www.elastic.co/downloads/elasticsearch)
+* [kibana](https://www.elastic.co/downloads/kibana)
+
+### Set up elasticsearch index
+1. Run elasticsearch
+2. Run Kibana
+3. Open Kibana at http://localhost:5601/app/home#/tutorial_directory
+4. Go to "Upload file" tab
+5. Drop file [animes.ndjson](server/data/animes.ndjson)
+6. Click on Import
+7. Set index name to animes
+8. Click on Import again
 
 ### Set up python's virtual environment
 
